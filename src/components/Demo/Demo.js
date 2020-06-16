@@ -2,23 +2,18 @@ import React from 'react';
 // 使用 Ant Design 体系
 import FormRender from 'form-render/lib/antd';
 import SCHEMA from '../../schema.json';
-import Customlist from '../customlist';
+import Customlist from '../Customlist/Customlist.js';
 export default class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       formData: {},
       valid: [],
-      uiSchema: {
-        select: {
-          'ui:disabled': false
-        }
-      }
+      uiSchema: {}
     };
   }
   onSubmit = () => {
     // valid 是校验判断的数组，valid 长度为 0 代表校验全部通过
-    console.log(this.state.valid);
     if (this.state.valid.length > 0) {
       alert(`校验未通过字段：${this.state.valid.toString()}`);
     } else {
@@ -39,7 +34,7 @@ export default class Demo extends React.Component {
           }}
           onValidate={val => {
             this.setState({
-                valid: val
+              valid: val
             });
           }}
           widgets={{ customlist: Customlist }}
