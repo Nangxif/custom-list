@@ -1,0 +1,23 @@
+{
+    "propsSchema": {
+      "type": "object",
+      "properties": {
+        "Aobject": {
+          "title": "自定义属性组件",
+          "type": "object",
+          "ui:widget": "customlist",
+          "properties": {
+            "tickets": {
+              "title": "门票数",
+              "type": "string"
+            },
+            "money": {
+              "title": "钱数",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  
