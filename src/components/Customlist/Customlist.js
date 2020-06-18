@@ -12,12 +12,14 @@ export default class Customlist extends React.Component {
       list: []
     };
   }
+  // 初始键值修改值的时候调用的方法，将数值传回给上一级
   handleChange(key, value) {
     this.props.onChange(this.props.name, {
       ...this.props.value,
       [key]: value
     });
   }
+  // 添加的项修改键的时候，这时候要同步修改上一级数据原来的键，将原来的值赋予新的键
   keyChange(index, value) {
     let arr = this.state.list;
     let target = this.props.value;
@@ -27,8 +29,10 @@ export default class Customlist extends React.Component {
     this.setState({ list: arr });
     this.props.onChange(this.props.name, target);
   }
+  // 添加一项
   addItem() {
     let arr = this.state.list;
+    // 先判断当前符合默认键的索引的最大值
     let max = arr
       .filter(item => /^defaultKey(\d+)$/.test(item[0]))
       .map(i => Number(i[0].slice(10)))
@@ -40,6 +44,7 @@ export default class Customlist extends React.Component {
       list: arr
     });
   }
+  // 移除项
   removeItem(index) {
     let arr = this.state.list;
     let target = this.props.value;

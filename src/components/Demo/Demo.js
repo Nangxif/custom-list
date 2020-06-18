@@ -2,7 +2,7 @@ import React from 'react';
 // 使用 Ant Design 体系
 import FormRender from 'form-render/lib/antd';
 import SCHEMA from '../../schema.json';
-import Customlist from '../Customlist/Customlist.js';
+import Customlist from '../Customlist/Customlist/Customlist.js';
 export default class Demo extends React.Component {
   constructor(props) {
     super(props);
